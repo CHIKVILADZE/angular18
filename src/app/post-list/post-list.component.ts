@@ -1,17 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CardComponent } from '../card/card.component';
 
 @Component({
   selector: 'app-post-list',
   standalone: true,
-  imports: [],
+  imports: [CardComponent],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.css',
 })
-export class PostListComponent {
-  @Input() postListTitle: string = '';
-
-  @Input() postIsLogin: boolean = false;
-
-  childMessage: string = 'Hello from child component';
-  postCount: number = 0;
-}
+export class PostListComponent {}

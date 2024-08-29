@@ -1,30 +1,48 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  AfterViewInit,
+  ViewContainerRef,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PostListComponent } from './post-list/post-list.component';
+import { CardComponent } from './card/card.component';
+import { NgComponentOutlet } from '@angular/common';
+import { ProfileComponent } from './profile/profile.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, NavbarComponent, PostListComponent],
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    NavbarComponent,
+    PostListComponent,
+    CardComponent,
+    NgComponentOutlet,
+    ProfileComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent {
   title = 'angular18';
 
-  appPostTitle: string = 'Post1';
+  userName: string = 'John Doe';
 
-  appIsLogin: boolean = false;
+  constructor(private viewContainer: ViewContainerRef) {}
 
-  @ViewChild(PostListComponent) childMessage: any;
-
-  constructor() {
-    console.log('child message', this.childMessage);
+  loadComponent() {
+    this.viewContainer.createComponent(PostListComponent);
   }
 
-  ngAfterViewInit() {
-    console.log('child message2', this.childMessage);
+  removeComponent() {
+    this.viewContainer.remove();
+  }
+
+  changeUser() {
+    this.userName = 'John Smith';
   }
 }

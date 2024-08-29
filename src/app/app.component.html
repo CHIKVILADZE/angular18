@@ -1,5 +1,9 @@
-<h1>{{ appPostTitle }} (App)</h1>
-<app-post-list
-  [postListTitle]="appPostTitle"
-  [postIsLogin]="appIsLogin"
-></app-post-list>
+<!-- <app-post-list></app-post-list> -->
+
+<!-- <div *ngComponentAutlet="loadComponent()"></div> -->
+<!-- 
+<button (click)="loadComponent()">Create Component</button>
+<button (click)="removeComponent()">REmove Component</button> -->
+
+<app-profile [pUserName]="userName"></app-profile>
+<button (click)="changeUser()">Change User Name</button>
