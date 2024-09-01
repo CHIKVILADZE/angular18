@@ -1,0 +1,24 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label for="firstName">First Name:</label>
+  <input id="firstName" formControlName="firstName" />
+  <div
+    *ngIf="
+      profileForm.get('firstName').invalid &&
+      profileForm.get('firstName').touched
+    "
+  >
+    First Name is required
+  </div>
+
+  <label for="lastName">Last Name:</label>
+  <input id="lastName" formControlName="lastName" />
+  <div
+    *ngIf="
+      profileForm.get('lastName').invalid && profileForm.get('lastName').touched
+    "
+  >
+    Last Name is required
+  </div>
+
+  <button type="submit" [disabled]="profileForm.invalid">Submit</button>
+</form>

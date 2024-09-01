@@ -11,6 +11,7 @@ import { PostListComponent } from './post-list/post-list.component';
 import { CardComponent } from './card/card.component';
 import { NgComponentOutlet } from '@angular/common';
 import { ProfileComponent } from './profile/profile.component';
+import { ProfileEditorComponent } from './profile-editor/profile-editor.component';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,7 @@ import { ProfileComponent } from './profile/profile.component';
     CardComponent,
     NgComponentOutlet,
     ProfileComponent,
+    ProfileEditorComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',

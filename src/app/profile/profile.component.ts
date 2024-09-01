@@ -15,6 +15,8 @@ export class ProfileComponent implements OnChanges, OnInit, DoCheck {
     console.log(this.pUserName);
   }
 
+  counter: number = 0;
+
   ngOnInit() {
     console.log('NgOnInit Hook Triggered');
     console.log(this.pUserName);
@@ -26,5 +28,9 @@ export class ProfileComponent implements OnChanges, OnInit, DoCheck {
 
   ngDoCheck() {
     console.log('NgDoChek trigger');
+  }
+
+  incrementCounter() {
+    this.counter++;
   }
 }
